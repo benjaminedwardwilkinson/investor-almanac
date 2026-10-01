@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183d32">
+  <meta name="description" content="Investor Almanac — today's hand of market history, public data, and seasonal discoveries, refreshed as sources update.">
+  <meta property="og:site_name" content="Investor Almanac">
+  <link rel="canonical" href="https://investor-almanac.com/">
+  <title>Investor Almanac — The cards today dealt you</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v='35') }}">
+  <script src="{{ url_for('static', filename='app.js', v='34') }}" defer
+    onerror="document.getElementById('status').textContent='The dashboard script did not load. Reload the page to try again.'"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#today" aria-label="Investor Almanac home"><span class="brand-mark">✳</span> Investor Almanac</a>
+    <h1 id="cards-title" class="topbar-title">The cards today dealt you</h1>
+    <time class="topbar-date" id="today-date" aria-label="Current date">TODAY'S ALMANAC</time>
+  </header>
+
+  <main>
+    <section class="almanac-section" id="today" aria-labelledby="cards-title">
+      <div id="cards" class="cards" aria-live="polite"></div>
+      <div class="deck-controls" id="deck-controls" aria-label="Card navigation" hidden>
+        <button class="deck-button" id="deck-prev" type="button" aria-label="Previous card" title="Previous card">←</button>
+        <span id="deck-position" class="deck-position" aria-live="polite">Swipe or use the arrows</span>
+        <button class="deck-button" id="deck-next" type="button" aria-label="Next card" title="Next card">→</button>
+      </div>
+      <p class="empty" id="empty-state" hidden>No field cards for this month. Try another month or follow the season's hand.</p>
+    </section>
+
+    <section class="year-section" id="year-view" aria-labelledby="year-title" hidden>
+      <div class="section-heading"><div><p class="eyebrow">THE WHOLE ORBIT</p><h2 id="year-title">A year of little seasons</h2></div><span class="count">Tap a month to explore</span></div>
+      <div class="year-grid" id="year-grid"></div>
+    </section>
+
+    <footer>
+      <p id="disclaimer">For entertainment and education. Historical patterns do not predict future results or recommend a trade.</p>
+      <details class="footer-sources" id="sources-drawer"><summary>Sources and how to read the numbers</summary><div class="source-diagnostics"><span class="diagnostic-icon" aria-hidden="true">◉</span><span><b>Data connection</b><small id="source-health" role="status">Checking public sources…</small></span><span class="diagnostic-count" id="source-line">Checking public data…</span></div><div id="status" class="status" role="status" hidden></div><div id="source-list" class="source-list"><p>Loading source notes…</p></div><p>Data release dates and coverage differ. Sales seasonality combines seasonal, holiday, and trading-day effects; it cannot tell us what caused a particular purchase. Exposure examples show possible connections, not what to buy.</p><button class="refresh source-refresh" id="refresh-button" type="button">↻ <span>Refresh data</span></button></details>
+      <div><span>Self-hosted · no account · one free market-data key · no AI</span></div>
+    </footer>
+  </main>
+
+</body>
+</html>
